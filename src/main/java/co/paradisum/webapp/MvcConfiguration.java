@@ -24,7 +24,7 @@ import com.amazonaws.services.ec2.AmazonEC2Client;
 import java.io.IOException;
 
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.amazonaws.labs.sampleapp"})
+@ComponentScan(basePackages = {"co.paradisum.webapp"})
 @Configuration
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
     private static Region region = Regions.getCurrentRegion();
@@ -74,7 +74,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
     public PropertySourcesPlaceholderConfigurer properties() {
         final PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
         try {
-            configurer.setLocations(new PathMatchingResourcePatternResolver().getResources("file:/var/codedeploy/tomcat-sample/env.properties"));
+            configurer.setLocations(new PathMatchingResourcePatternResolver().getResources("file:/var/codedeploy/tomcat-paradisum/env.properties"));
         } catch (IOException e) {
             throw new RuntimeException("Failed to load resources.", e);
         }
